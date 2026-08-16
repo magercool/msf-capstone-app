@@ -31,13 +31,28 @@ def check_password():
         
     return False
 
-# Stop execution if password is not correct
+# Stop execution if password is not correct (shows only the password box)
 if not check_password():
     st.stop()
 
 # ==========================================
-# APP CONTENT
+# NAVIGATION & PAGES (Shows only AFTER login)
 # ==========================================
+pg = st.navigation({
+    "Main Menu": [
+        st.Page("main.py", title="Home", icon="🏠"),
+    ],
+    "Capstone Modules": [
+        st.Page("pages/1_Eligibility_Screener.py", title="Eligibility Screener", icon="💡"),
+        st.Page("pages/2_Document_Checklist.py", title="Document Checklist", icon="📋"),
+    ],
+    "Documentation": [
+        st.Page("pages/3_About_Us.py", title="About Us", icon="ℹ️"),
+        st.Page("pages/4_Methodology.py", title="Methodology", icon="⚙️"),
+    ]
+})
+
+# Render the home page content when on main.py
 st.title("🤝 MSF Financial Assistance Companion")
 st.subheader("Your interactive guide to navigating ComCare schemes in Singapore.")
 
@@ -51,12 +66,10 @@ Navigating government assistance can often feel overwhelming. This application b
    Input your household size, income, and situation to instantly evaluate which ComCare scheme you may qualify for.
 2. **📋 Document Checklist:** 
    Generate a custom document checklist based on your employment and medical status to prepare for your Social Service Office (SSO) appointment.
-3. **ℹ️ About Us & ⚙️ Methodology:** 
-   Explore project background, architecture guidelines, and safety guardrails.
-
----
-👉 **Please use the left sidebar menu to navigate between the application modules.**
 
 ---
 *Disclaimer: This is a student capstone project developed for educational purposes. For official applications, please visit [SupportGoWhere](https://supportgowhere.life.gov.sg/).*
 """)
+
+# Run the navigation manager
+pg.run()
