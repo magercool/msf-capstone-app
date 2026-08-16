@@ -10,7 +10,7 @@ st.set_page_config(page_title="About Us", page_icon="ℹ️", layout="centered")
 st.title("ℹ️ About This Project")
 st.markdown("""
 ### Project Overview
-The **MSF Financial Assistance Application Companion** is an interactive, LLM-powered web application designed to help Singaporean citizens seamlessly navigate government financial aid schemes (specifically ComCare assistance under the Ministry of Social and Family Development). 
+The **MSF ComCare Companion** is an interactive, LLM-powered web application designed to help Singaporean citizens seamlessly navigate government financial aid schemes (specifically ComCare assistance under the Ministry of Social and Family Development). 
 
 Navigating government assistance policies can often feel dense and overwhelming. This application bridges the information gap by providing transparent, structured guidance tailored to an individual's household situation.
 
