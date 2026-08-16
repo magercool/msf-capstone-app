@@ -109,12 +109,19 @@ st.markdown("---")
 # --- FLOATING BOTTOM-RIGHT CHAT WIDGET ---
 st.markdown("""
 <style>
-/* Pins the popover container element to the bottom right of the viewport */
-[data-testid="stPopover"] {
+/* Target the specific popover wrapper container */
+div[data-testid="stPopover"] {
     position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
+    bottom: 25px !important;
+    right: 25px !important.
     z-index: 999999 !important;
+}
+
+/* Ensure the button inside the popover wrapper doesn't stretch */
+div[data-testid="stPopover"] > button {
+    width: auto !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 24px !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -145,7 +152,6 @@ with st.popover("🤖 Need Help?"):
                     api_key = st.secrets.get("OPENAI_API_KEY")
                     client = OpenAI(api_key=api_key)
                     
-                    # Sharpened prompt for simpler, warmer, and clearer instructions
                     prompt = f"""
                     You are a helpful, warm, and clear digital assistant for Singapore's Ministry of Social and Family Development (MSF).
                     A citizen applying for ComCare financial assistance needs help obtaining a document.
