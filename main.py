@@ -4,6 +4,7 @@ st.set_page_config(
     page_title="MSF Assistance Companion",
     page_icon="🤝",
     layout="centered"
+    initial_sidebar_state="expanded"
 )
 
 def check_password():
