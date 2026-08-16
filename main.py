@@ -6,20 +6,43 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("🤝 MSF Financial Assistance Companion")
-st.subheader("Your interactive guide to navigating ComCare schemes in Singapore.")
+def check_password():
+    """Returns True if the user entered the correct password."""
+    def password_entered():
+        if st.session_state["password"] == st.secrets.get("app_password", "default_fallback_pass"):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]
+        else:
+            st.session_state["password_correct"] = False
 
-st.markdown("""
-Welcome to the **MSF Financial Assistance Application Companion**, a capstone tool designed to help citizens seamlessly navigate government financial aid. 
+    if st.session_state.get("password_correct", False):
+        return True
 
-Navigating government assistance can often feel overwhelming. This application bridges the information gap by providing transparent, structured guidance tailored to your household situation.
+    st.title("🔒 Restricted Access")
+    st.write("Please enter the password to access this capstone application.")
+    
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    
+    if "password_correct" in st.session_state and not st.session_state["password_correct"]:
+        st.error("😕 Password incorrect. Please try again.")
+        
+    return False
 
-### 🚀 Available Features
-1. **💡 Eligibility Screener:** 
-   Input your household size, income, and situation to instantly evaluate which ComCare scheme (Short-to-Medium-Term Assistance, Long-Term Assistance, or Interim Assistance) you may qualify for.
-2. **📋 Document Checklist Generator:** 
-   Generate a custom document checklist based on your employment and medical status to prepare for your Social Service Office (SSO) appointment.
+if not check_password():
+    st.stop()
 
----
-*Disclaimer: This is a student capstone project developed for educational purposes. For official applications, please visit [SupportGoWhere](https://supportgowhere.life.gov.sg/).*
-""")
+# --- DEFINE CUSTOM MULTI-PAGE NAVIGATION ---
+pg = st.navigation({
+    "Navigation": [
+        st.Page("main.py", title="Home", icon="🏠"),
+        st.Page("pages/1_Eligibility_Screener.py", title="Eligibility Screener", icon="💡"),
+        st.Page("pages/2_Document_Checklist.py", title="Document Checklist", icon="📋"),
+        st.Page("pages/3_About_Us.py", title="About Us", icon="ℹ️"),
+        st.Page("pages/4_Methodology.py", title="Methodology", icon="⚙️"),
+    ]
+})
+
+# Run the selected page
+pg.run()
