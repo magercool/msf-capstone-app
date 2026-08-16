@@ -40,34 +40,22 @@ if not check_password():
 st.title("🤝 MSF Financial Assistance Companion")
 st.subheader("Your interactive guide to navigating ComCare schemes in Singapore.")
 
-st.markdown("---")
-st.subheader("Get Started")
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("💡 Open Eligibility Screener", use_container_width=True):
-        st.switch_page("pages/1_Eligibility_Screener.py")
-    if st.button("📋 Open Document Checklist", use_container_width=True):
-        st.switch_page("pages/2_Document_Checklist.py")
-
-with col2:
-    if st.button("ℹ️ About Us", use_container_width=True):
-        st.switch_page("pages/3_About_Us.py")
-    if st.button("⚙️ Methodology", use_container_width=True):
-        st.switch_page("pages/4_Methodology.py")
-
 st.markdown("""
 Welcome to the **MSF Financial Assistance Application Companion**, a capstone tool designed to help citizens seamlessly navigate government financial aid. 
 
 Navigating government assistance can often feel overwhelming. This application bridges the information gap by providing transparent, structured guidance tailored to your household situation.
 
-### 🚀 Available Features
+### 🚀 Available Features in the Sidebar:
 1. **💡 Eligibility Screener:** 
    Input your household size, income, and situation to instantly evaluate which ComCare scheme you may qualify for.
-2. **📋 Document Checklist Generator:** 
+2. **📋 Document Checklist:** 
    Generate a custom document checklist based on your employment and medical status to prepare for your Social Service Office (SSO) appointment.
+3. **ℹ️ About Us & ⚙️ Methodology:** 
+   Explore project background, architecture guidelines, and safety guardrails.
+
+---
+👉 **Please use the left sidebar menu to navigate between the application modules.**
 
 ---
 *Disclaimer: This is a student capstone project developed for educational purposes. For official applications, please visit [SupportGoWhere](https://supportgowhere.life.gov.sg/).*
 """)
-
