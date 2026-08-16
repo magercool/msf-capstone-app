@@ -31,12 +31,12 @@ def check_password():
         
     return False
 
-# Stop execution if password is not correct (shows only the password box)
+# Stop execution if password is not correct
 if not check_password():
     st.stop()
 
 # ==========================================
-# NAVIGATION & PAGES (Shows only AFTER login)
+# NAVIGATION SETUP
 # ==========================================
 pg = st.navigation({
     "Main Menu": [
@@ -52,7 +52,9 @@ pg = st.navigation({
     ]
 })
 
-# Render the home page content when on main.py
+# ==========================================
+# HOME PAGE CONTENT
+# ==========================================
 st.title("🤝 MSF Financial Assistance Companion")
 st.subheader("Your interactive guide to navigating ComCare schemes in Singapore.")
 
@@ -68,8 +70,11 @@ Navigating government assistance can often feel overwhelming. This application b
    Generate a custom document checklist based on your employment and medical status to prepare for your Social Service Office (SSO) appointment.
 
 ---
+👉 **Please use the left sidebar menu to navigate between the application modules.**
+
+---
 *Disclaimer: This is a student capstone project developed for educational purposes. For official applications, please visit [SupportGoWhere](https://supportgowhere.life.gov.sg/).*
 """)
 
-# Run the navigation manager
+# Run the navigation manager at the very end
 pg.run()
