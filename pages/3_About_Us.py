@@ -1,5 +1,10 @@
 import streamlit as st
 
+# --- AUTHENTICATION CHECK ---
+if not st.session_state.get("password_correct", False):
+    st.error("⚠️ Please log in from the Home page first.")
+    st.stop()
+
 st.set_page_config(page_title="About Us", page_icon="ℹ️", layout="centered")
 
 st.title("ℹ️ About This Project")

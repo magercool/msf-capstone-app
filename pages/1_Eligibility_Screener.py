@@ -1,6 +1,11 @@
 import streamlit as st
 from openai import OpenAI
 
+# --- AUTHENTICATION CHECK ---
+if not st.session_state.get("password_correct", False):
+    st.error("⚠️ Please log in from the Home page first.")
+    st.stop()
+
 st.set_page_config(page_title="Eligibility Screener", page_icon="💡", layout="centered")
 
 st.title("💡 MSF ComCare Eligibility Screener")
