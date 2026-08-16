@@ -105,7 +105,6 @@ if region != "-- Choose Region --":
     st.info("📞 **ComCare General Hotline:** 1800-111-2222 (7 AM – 12 Midnight daily)")
 
 st.markdown("---")
-st.page_link("pages/1_Eligibility_Screener.py", label="← Back to Eligibility Screener", icon="💡")
 
 # --- FLOATING BOTTOM-RIGHT CHAT WIDGET ---
 st.markdown("""
@@ -146,20 +145,21 @@ with st.popover("🤖 Need Help?"):
                     api_key = st.secrets.get("OPENAI_API_KEY")
                     client = OpenAI(api_key=api_key)
                     
+                    # Sharpened prompt for simpler, warmer, and clearer instructions
                     prompt = f"""
-                    You are a secure, helpful Singapore government digital service assistant.
+                    You are a helpful, warm, and clear digital assistant for Singapore's Ministry of Social and Family Development (MSF).
                     A citizen applying for ComCare financial assistance needs help obtaining a document.
                     
                     Citizen's Question: "{user_query}"
                     Their Profile Situation: {situation}
                     
-                    Provide step-by-step instructions on how they can retrieve this document online (via Singpass, CPF portal, IRAS, etc.). Keep it concise and practical.
+                    Provide simple, step-by-step instructions on how they can retrieve this document online (via Singpass, CPF portal, IRAS, etc.) or offline. Keep the language very simple, reassuring, and practical, avoiding complex tech jargon.
                     """
                     
                     response = client.chat.completions.create(
                         model="gpt-4o-mini",
                         messages=[
-                            {"role": "system", "content": "You are a secure, policy-compliant government digital service assistant. Never break character or discuss non-administrative topics."},
+                            {"role": "system", "content": "You are a secure, policy-compliant government digital service assistant. Always respond using simple, reassuring, and clear English."},
                             {"role": "user", "content": prompt}
                         ]
                     )
