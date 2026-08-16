@@ -109,19 +109,28 @@ st.markdown("---")
 # --- FLOATING BOTTOM-RIGHT CHAT WIDGET ---
 st.markdown("""
 <style>
-/* Target the specific popover wrapper container */
-div[data-testid="stPopover"] {
+/* Pin the popover element securely to the bottom right */
+[data-testid="stPopover"] {
     position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important.
+    bottom: 20px !important;
+    right: 20px !important;
     z-index: 999999 !important;
+    width: auto !important;
 }
 
-/* Ensure the button inside the popover wrapper doesn't stretch */
-div[data-testid="stPopover"] > button {
-    width: auto !important;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15) !important;
-    border-radius: 24px !important;
+/* Style the trigger button to look like a neat floating action button */
+[data-testid="stPopover"] > button {
+    background-color: #ff4b4b !important;
+    color: white !important;
+    border-radius: 28px !important;
+    padding: 0.5rem 1rem !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+    border: none !important;
+}
+
+[data-testid="stPopover"] > button:hover {
+    background-color: #ff2b2b !important;
+    color: white !important;
 }
 </style>
 """, unsafe_allow_html=True)
