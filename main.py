@@ -54,3 +54,13 @@ Navigating government assistance can often feel overwhelming. This application b
 ---
 *Disclaimer: This is a student capstone project developed for educational purposes. For official applications, please visit [SupportGoWhere](https://supportgowhere.life.gov.sg/).*
 """)
+
+st.markdown("---")
+st.subheader("Get Started")
+col1, col2 = st.columns(2)
+with col1:
+    st.page_link("pages/1_Eligibility_Screener.py", label="Open Eligibility Screener", icon="💡")
+    st.page_link("pages/2_Document_Checklist.py", label="Open Document Checklist", icon="📋")
+with col2:
+    st.page_link("pages/3_About_Us.py", label="About Us", icon="ℹ️")
+    st.page_link("pages/4_Methodology.py", label="Methodology", icon="⚙️")
